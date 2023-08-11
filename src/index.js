@@ -1,8 +1,9 @@
 import { brainEven, getNumberArray } from '../bin/brain-even.js';
-import { brainCalc } from '../bin/brain-calc.js'
+import { brainCalc } from '../bin/brain-calc.js';
+import { brainGcd } from '../bin/brain-gcd.js';
 import readlineSync from 'readline-sync';
 
-const games = ['brain-even', 'brain-calc'];
+const games = ['brain-even', 'brain-calc', 'brain-gcd'];
 
 for (const game of games) {
     console.log(game)
@@ -15,5 +16,8 @@ if (game == 'brain-even') {
     brainEven(getNumberArray(1, 100));
 }
 else if (game == 'brain-calc') {
-    brainCalc()
+    brainCalc();
+}
+else if (game == 'brain-gcd') {
+    brainGcd()
 }
