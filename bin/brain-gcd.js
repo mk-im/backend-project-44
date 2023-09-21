@@ -22,6 +22,7 @@ export const getNumbers = (min, max) => {
     }
     return numbers;
 };
+
 export const brainGcd = () => {
     console.log('Find the greatest common divisor of given numbers.');
     for (let i = 0; correctAnswers < 3; i += 1) {
