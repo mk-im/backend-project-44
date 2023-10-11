@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import readlineSync from 'readline-sync';
-import { name, getNumberArray } from '../src/cli.js';
+import { getNumberArray } from '../src/cli.js';
+import gameLogic from '../src/gameLogic.js';
 
 const isPrime = (number) => {
   let divisor = 2;
@@ -14,23 +15,16 @@ const isPrime = (number) => {
   return 'yes';
 };
 
-let correctAnswers = 0;
-
 const brainPrime = () => {
-  for (const number of getNumberArray(1, 100)) {
+  let correctAnswers = 0;
+  const numbers = getNumberArray(1, 100);
+  for (const number of numbers) {
     const userAnswer = readlineSync.question(`Question:${number}\n Your answer:`);
     const correctAnswer = isPrime(number);
-    if (correctAnswer === userAnswer && correctAnswers < 3) {
-      correctAnswers += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${name}!`);
+    gameLogic(correctAnswer, userAnswer, correctAnswers);
+    if (correctAnswer !== userAnswer) {
       break;
     }
-  }
-
-  if (correctAnswers === 3) {
-    console.log(`Congratulations, ${name}!`);
   }
 };
 

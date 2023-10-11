@@ -13,6 +13,9 @@ const brainEven = () => {
     const userAnswer = readlineSync.question(`Question:${number}\n Your answer:`);
     const correctAnswer = isEven(number);
     gameLogic(correctAnswer, userAnswer, correctAnswers);
+    if (correctAnswer !== userAnswer) {
+      break;
+    }
   }
 };
 

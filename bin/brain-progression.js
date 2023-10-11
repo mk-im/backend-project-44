@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 import readlineSync from 'readline-sync';
-import { name, randomNumber } from '../src/cli.js';
-
-let correctAnswers = 0;
+import { randomNumber } from '../src/cli.js';
+import gameLogic from '../src/gameLogic.js';
 
 const generateProgression = (start, step, maxElems) => {
   const progression = [];
@@ -23,6 +22,7 @@ const hideRandomElement = (array) => {
 };
 
 const brainProgression = () => {
+  const correctAnswers = 0;
   for (let i = 0; correctAnswers < 3; i += 1) {
     const start = randomNumber(1, 15);
     const step = randomNumber(5, 15);
@@ -30,16 +30,10 @@ const brainProgression = () => {
     const progression = generateProgression(start, step, maxElems);
     const [correctAnswer, progressionString] = hideRandomElement(progression);
     const userAnswer = readlineSync.question(`Question: ${progressionString}\n Your answer:`);
-    if (correctAnswer === userAnswer && correctAnswers < 3) {
-      correctAnswers += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${name}!`);
+    gameLogic(correctAnswer, userAnswer, correctAnswers);
+    if (correctAnswer !== userAnswer) {
       break;
     }
-  }
-  if (correctAnswers === 3) {
-    console.log(`Congratulations, ${name}!`);
   }
 };
 
