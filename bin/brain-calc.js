@@ -24,13 +24,12 @@ const calculation = (numbers, operation) => {
 };
 
 const brainCalc = () => {
-  const correctAnswers = 0;
-  for (let i = 0; correctAnswers < 3; i += 1) {
-    const numbers = getNumberArray(1, 100);
+  for (let i = 0; i < 3; i += 1) {
+    const numbers = getNumberArray(1, 100, 2);
     const operation = getMathOperation();
     const userAnswer = readlineSync.question(`Question:${numbers[0]} ${operation} ${numbers[1]}\n Your answer:`);
     const correctAnswer = calculation(numbers, operation).toString();
-    gameLogic(correctAnswer, userAnswer, correctAnswers);
+    gameLogic(correctAnswer, userAnswer);
     if (correctAnswer !== userAnswer) {
       break;
     }

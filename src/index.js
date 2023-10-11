@@ -8,7 +8,7 @@ import brainCalc from '../bin/brain-calc.js';
 import brainGcd from '../bin/brain-gcd.js';
 import brainProgression from '../bin/brain-progression.js';
 import brainPrime from '../bin/brain-prime.js';
-import { games } from './games.js';
+import games from './games.js';
 
 for (const game of games) {
   console.log(game);

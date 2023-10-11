@@ -22,16 +22,15 @@ const hideRandomElement = (array) => {
 };
 
 const brainProgression = () => {
-  const correctAnswers = 0;
-  for (let i = 0; correctAnswers < 3; i += 1) {
+  for (let i = 0; i < 3; i += 1) {
     const start = randomNumber(1, 15);
     const step = randomNumber(5, 15);
     const maxElems = randomNumber(6, 15);
     const progression = generateProgression(start, step, maxElems);
     const [correctAnswer, progressionString] = hideRandomElement(progression);
     const userAnswer = readlineSync.question(`Question: ${progressionString}\n Your answer:`);
-    gameLogic(correctAnswer, userAnswer, correctAnswers);
-    if (correctAnswer !== userAnswer) {
+    gameLogic(`${correctAnswer}`, userAnswer);
+    if (`${correctAnswer}` !== userAnswer) {
       break;
     }
   }

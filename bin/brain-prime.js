@@ -16,12 +16,11 @@ const isPrime = (number) => {
 };
 
 const brainPrime = () => {
-  let correctAnswers = 0;
   const numbers = getNumberArray(1, 100);
   for (const number of numbers) {
     const userAnswer = readlineSync.question(`Question:${number}\n Your answer:`);
     const correctAnswer = isPrime(number);
-    gameLogic(correctAnswer, userAnswer, correctAnswers);
+    gameLogic(correctAnswer, userAnswer);
     if (correctAnswer !== userAnswer) {
       break;
     }

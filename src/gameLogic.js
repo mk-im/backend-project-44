@@ -12,9 +12,9 @@ const gameLogic = (correctAnswer, userAnswer, correctAnswers = 0) => {
   if (correctAnswer === userAnswer && correctAnswers < 3) {
     correctAnswers += 1;
     console.log('Correct!');
-    return correctAnswers;
+  } else if (correctAnswer !== userAnswer) {
+    console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${name}!`);
   }
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${name}!`);
 };
 
 export default gameLogic;
