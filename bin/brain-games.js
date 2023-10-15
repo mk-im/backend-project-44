@@ -1,6 +1,11 @@
 #!/usr/bin/env node
+import readlineSync from 'readline-sync';
 
-import name from '../src/cli.js';
+const name = readlineSync.question('May I have your name? ');
 
-console.log('Welcome to the Brain Games!');
-console.log(`Hello, ${name}!`);
+const brainGames = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${name}!`);
+};
+
+export { brainGames, name };

@@ -1,7 +1,3 @@
-import readlineSync from 'readline-sync';
-
-const name = readlineSync.question('May I have your name? ');
-
 const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getNumberArray = (min, max, size = 3) => {
@@ -14,4 +10,4 @@ const getNumberArray = (min, max, size = 3) => {
   return numbers;
 };
 
-export { getNumberArray, randomNumber, name };
+export { getNumberArray, randomNumber };
