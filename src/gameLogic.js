@@ -1,4 +1,4 @@
-import { name } from '../bin/brain-games.js';
+import { name } from '../src/cli.js';
 
 const gameLogic = (correctAnswer, userAnswer, correctAnswers = 0) => {
   if (correctAnswers < 3) {
