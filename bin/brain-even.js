@@ -1,5 +1,7 @@
-#!/usr/bin/env node
+import brainEvenGame from '../src/games/isEven.js';
 
-import isEvenGame from '../src/games/isEven.js';
+const brainEven = () => {
+  brainEvenGame();
+};
 
-export default isEvenGame;
+export default brainEven;

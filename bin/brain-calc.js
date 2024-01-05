@@ -1,39 +1,9 @@
-import readlineSync from 'readline-sync';
-import { getNumberArray } from '../src/cli.js';
-import gameLogic from '../src/gameLogic.js';
+#!/usr/bin/env node
 
-const getMathOperation = () => {
-  const operations = ['substraction', 'addition', 'multiplication'];
-  const result = operations[Math.floor(Math.random() * operations.length)];
-  if (result === 'addition') {
-    return '+';
-  } if (result === 'substraction') {
-    return '-';
-  }
-  return '*';
-};
-
-const calculation = (numbers, operation) => {
-  if (operation === '-') {
-    return (numbers[0] - numbers[1]);
-  }
-  if (operation === '*') {
-    return (numbers[0] * numbers[1]);
-  }
-  return (numbers[0] + numbers[1]);
-};
+import brainCalcGame from '../src/games/calc.js';
 
 const brainCalc = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const numbers = getNumberArray(1, 100, 2);
-    const operation = getMathOperation();
-    const userAnswer = readlineSync.question(`Question:${numbers[0]} ${operation} ${numbers[1]}\n Your answer:`);
-    const correctAnswer = calculation(numbers, operation).toString();
-    gameLogic(correctAnswer, userAnswer);
-    if (correctAnswer !== userAnswer) {
-      break;
-    }
-  }
-};
+  brainCalcGame();
+}
 
 export default brainCalc;
