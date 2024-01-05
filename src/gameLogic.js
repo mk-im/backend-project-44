@@ -1,16 +1,25 @@
-import { name } from '../src/cli.js';
+/* eslint-disable no-unreachable-loop */
+import readlineSync from 'readline-sync';
 
-const gameLogic = (correctAnswer, userAnswer, correctAnswers = 0) => {
+const gameLogic = (description, gameRound, correctAnswers = 0) => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  console.log(description);
   if (correctAnswers < 3) {
-    if (correctAnswer === userAnswer) {
-      correctAnswers += 1;
+    const [task, rightAnswer] = gameRound();
+    console.log(`Question: ${task}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer === rightAnswer) {
       console.log('Correct!');
-    } else if (correctAnswer !== userAnswer) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\n Let's try again, ${name}!`);
+      correctAnswers += 1;
+    } else if (answer !== rightAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
-  } else if (correctAnswers >= 3) {
-    console.log(`Congratulations, ${name}!`);
   }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default gameLogic;
