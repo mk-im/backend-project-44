@@ -1,3 +1,4 @@
+/* eslint-disable import/no-mutable-exports */
 import readlineSync from 'readline-sync';
 
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;

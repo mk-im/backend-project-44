@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import readlineSync from 'readline-sync';
 import { greeting, userName } from './cli.js';
 
