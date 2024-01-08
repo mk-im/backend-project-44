@@ -4,8 +4,8 @@ import { greeting, userName } from './cli.js';
 
 const gameLogic = (description, gameRound, correctAnswers = 0) => {
   greeting();
-  const roundsNumber = 3;
   console.log(description);
+  const roundsNumber = 3;
   for (let i = 0; i < roundsNumber; i += 1) {
     const [question, correctAnswer] = gameRound();
     console.log(`Question: ${question}`);
