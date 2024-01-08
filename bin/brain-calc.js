@@ -2,10 +2,4 @@
 
 import brainCalcGame from '../src/games/calc.js';
 
-const brainCalc = () => {
-  brainCalcGame();
-};
-
-brainCalc();
-
-export default brainCalc;
+brainCalcGame();

@@ -1,4 +1,4 @@
-import gameLogic from '../gameLogic.js';
+import gameLogic from '../index.js';
 import { getNumberArray } from '../cli.js';
 
 const description = 'What is the result of the expression?';

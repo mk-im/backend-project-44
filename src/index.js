@@ -1,26 +1,26 @@
-/* eslint-disable no-restricted-syntax */
 import readlineSync from 'readline-sync';
-import brainEven from '../bin/brain-even.js';
-import brainCalc from '../bin/brain-calc.js';
-import brainGcd from '../bin/brain-gcd.js';
-import brainProgression from '../bin/brain-progression.js';
-import brainPrime from '../bin/brain-prime.js';
-import games from './games.js';
+import { greeting, userName } from './cli.js';
 
-for (const game of games) {
-  console.log(game);
-}
+const gameLogic = (description, gameRound, correctAnswers = 0) => {
+  greeting();
+  const roundsNumber = 3;
+  console.log(description);
+  for (let i = 0; i < roundsNumber; i += 1) {
+    const [question, correctAnswer] = gameRound();
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (userAnswer === correctAnswer) {
+      console.log('Correct!');
+      correctAnswers += 1;
+    } else if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
+    }
+    if (correctAnswers === 3) {
+      console.log(`Congratulations, ${userName}!`);
+    }
+  }
+};
 
-const game = readlineSync.question('Choose the game: ');
-
-if (game === 'brain-even') {
-  brainEven();
-} else if (game === 'brain-calc') {
-  brainCalc();
-} else if (game === 'brain-gcd') {
-  brainGcd();
-} else if (game === 'brain-progression') {
-  brainProgression();
-} else if (game === 'brain-prime') {
-  brainPrime();
-}
+export default gameLogic;

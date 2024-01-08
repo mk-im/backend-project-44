@@ -1,5 +1,5 @@
 import { getRandomNumber } from '../cli.js';
-import gameLogic from '../gameLogic.js';
+import gameLogic from '../index.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -11,8 +11,8 @@ const gameRound = () => {
   return [number, userAnswer];
 };
 
-const isEvenGame = () => {
+const brainEvenGame = () => {
   gameLogic(description, gameRound);
 };
 
-export default isEvenGame;
+export default brainEvenGame;

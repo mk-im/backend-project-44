@@ -1,5 +1,5 @@
 import { getRandomNumber } from '../cli.js';
-import gameLogic from '../gameLogic.js';
+import gameLogic from '../index.js';
 
 const description = 'What number is missing in the progression?';
 
