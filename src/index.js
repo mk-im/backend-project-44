@@ -5,7 +5,10 @@ import brainCalc from '../bin/brain-calc.js';
 import brainGcd from '../bin/brain-gcd.js';
 import brainProgression from '../bin/brain-progression.js';
 import brainPrime from '../bin/brain-prime.js';
+import brainGames from '../bin/brain-games.js';
 import games from './games.js';
+
+brainGames();
 
 for (const game of games) {
   console.log(game);
