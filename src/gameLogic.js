@@ -1,9 +1,9 @@
 /* eslint-disable import/named */
 /* eslint-disable no-unreachable-loop */
 import readlineSync from 'readline-sync';
-import { brainGames, userName } from '../bin/brain-games.js';
+import { greeting, userName } from './cli.js';
 
-brainGames();
+greeting();
 
 const gameLogic = (description, gameRound, correctAnswers = 0) => {
   const roundsNumber = 3;

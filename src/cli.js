@@ -1,3 +1,5 @@
+import readlineSync from 'readline-sync';
+
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getNumberArray = (min, max, size = 3) => {
@@ -10,4 +12,14 @@ const getNumberArray = (min, max, size = 3) => {
   return numbers;
 };
 
-export { getNumberArray, getRandomNumber };
+let userName = '';
+
+const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+  userName += readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+};
+
+export {
+  getNumberArray, getRandomNumber, greeting, userName,
+};
