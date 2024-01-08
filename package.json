@@ -18,6 +18,15 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "main": "index.js",
+  "autoload": {
+    "files": [
+        "src/games/calc.js",
+        "src/games/gcd.js",
+        "src/games/isEven.js",
+        "src/games/isPrime.js",
+        "src/games/progression.js"
+     ]
+},
   "dependencies": {
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
