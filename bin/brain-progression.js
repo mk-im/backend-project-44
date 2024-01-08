@@ -4,4 +4,6 @@ const brainProgression = () => {
   brainProgressionGame();
 };
 
+brainProgression();
+
 export default brainProgression;

@@ -4,4 +4,6 @@ const brainPrime = () => {
   brainPrimeGame();
 };
 
+brainPrime();
+
 export default brainPrime;

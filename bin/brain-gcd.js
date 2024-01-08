@@ -4,4 +4,6 @@ const brainGcd = () => {
   brainGcdGame();
 };
 
+brainGcd();
+
 export default brainGcd;

@@ -4,4 +4,6 @@ const brainEven = () => {
   brainEvenGame();
 };
 
+brainEven();
+
 export default brainEven;
