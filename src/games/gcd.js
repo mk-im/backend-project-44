@@ -1,4 +1,4 @@
-import { getNumberArray } from '../cli.js';
+import { getNumberArray } from '../utils.js';
 import gameLogic from '../index.js';
 
 const description = 'Find the greatest common divisor of given numbers.';

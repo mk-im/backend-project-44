@@ -1,5 +1,5 @@
 import gameLogic from '../index.js';
-import { getNumberArray } from '../cli.js';
+import { getNumberArray } from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
