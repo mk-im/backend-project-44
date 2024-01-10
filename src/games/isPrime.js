@@ -1,4 +1,4 @@
-import getNumberArray from '../utils.js';
+import { getNumberArray } from '../utils.js';
 import gameLogic from '../index.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
