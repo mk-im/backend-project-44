@@ -1,4 +1,4 @@
-import { getNumberArray } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 import gameLogic from '../index.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -8,17 +8,19 @@ const isPrime = (number) => {
 
   while (number > divisor) {
     if (number % divisor === 0) {
-      return 'no';
+      return false;
     }
     divisor += 1;
   }
-  return 'yes';
+  return true;
 };
 
 const gameRound = () => {
-  const numbers = getNumberArray(1, 100);
-  const question = `${numbers[0]}`;
-  const correctAnswer = isPrime(numbers[0]).toString();
+  const minNumber = 0;
+  const maxNumber = 100;
+  const number = getRandomNumber(minNumber, maxNumber);
+  const question = `${number}`;
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 

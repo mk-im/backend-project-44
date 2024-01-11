@@ -1,11 +1,12 @@
 import readlineSync from 'readline-sync';
 
+const roundsNumber = 3;
+
 const gameLogic = (description, gameRound) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}`);
   console.log(description);
-  const roundsNumber = 3;
   for (let i = 0; i < roundsNumber; i += 1) {
     const [question, correctAnswer] = gameRound();
     console.log(`Question: ${question}`);

@@ -11,23 +11,24 @@ const generateProgression = (start, step, maxElems) => {
   return progression;
 };
 
-const hideRandomElement = (array) => {
-  const hiddenElementIndex = getRandomNumber(0, array.length - 1);
-  const hiddenElement = array[hiddenElementIndex];
+const hideElement = (array, hiddenElementIndex) => {
   const arrayCopy = [...array];
   arrayCopy[hiddenElementIndex] = '..';
   const result = arrayCopy.join(' ');
-
-  return [hiddenElement, result];
+  return result;
 };
 
 const gameRound = () => {
-  const start = getRandomNumber(1, 15);
-  const step = getRandomNumber(5, 15);
-  const maxElems = getRandomNumber(6, 15);
+  const minNumber = 10;
+  const maxNumber = 20;
+  const start = getRandomNumber(minNumber, maxNumber);
+  const step = getRandomNumber(minNumber, maxNumber);
+  const maxElems = getRandomNumber(minNumber, maxNumber);
   const progression = generateProgression(start, step, maxElems);
-  const [correctAnswer, progressionString] = hideRandomElement(progression);
-  const question = `${progressionString}`;
+  const hiddenElementIndex = getRandomNumber(0, progression.length - 1);
+  const progressionArray = hideElement(progression, hiddenElementIndex);
+  const question = `${progressionArray}`;
+  const correctAnswer = progression[hiddenElementIndex];
   return [question, correctAnswer.toString()];
 };
 

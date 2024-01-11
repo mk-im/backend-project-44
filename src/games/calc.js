@@ -1,34 +1,33 @@
 import gameLogic from '../index.js';
-import { getNumberArray } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
 const getMathOperation = () => {
-  const operations = ['substraction', 'addition', 'multiplication'];
-  const result = operations[Math.floor(Math.random() * operations.length)];
-  if (result === 'addition') {
-    return '+';
-  } if (result === 'substraction') {
-    return '-';
-  }
-  return '*';
+  const operations = ['+', '-', '*']; // на уровне модуля
+  const operation = operations[getRandomNumber(0, operations.length - 1)];
+  return operation;
 };
 
-const calculation = (numbers, operation) => {
-  if (operation === '-') {
-    return (numbers[0] - numbers[1]);
+const calculation = (number1, number2, operation) => {
+  switch (operation) {
+    case '-':
+      return (number1 - number2);
+    case '*':
+      return (number1 * number2);
+    default:
+      return (number1 + number2);
   }
-  if (operation === '*') {
-    return (numbers[0] * numbers[1]);
-  }
-  return (numbers[0] + numbers[1]);
 };
 
 const gameRound = () => {
-  const numbers = getNumberArray(1, 100, 2);
+  const minNumber = 0;
+  const maxNumber = 100;
+  const number1 = getRandomNumber(minNumber, maxNumber);
+  const number2 = getRandomNumber(minNumber, maxNumber);
   const operation = getMathOperation();
-  const question = `${numbers[0]} ${operation} ${numbers[1]}`;
-  const correctAnswer = calculation(numbers, operation).toString();
+  const question = `${number1} ${operation} ${number2}`;
+  const correctAnswer = calculation(number1, number2, operation).toString();
   return [question, correctAnswer];
 };
 
