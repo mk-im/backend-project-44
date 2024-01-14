@@ -26,8 +26,7 @@ const gameRound = () => {
   const maxElems = getRandomNumber(minNumber, maxNumber);
   const progression = generateProgression(start, step, maxElems);
   const hiddenElementIndex = getRandomNumber(0, progression.length - 1);
-  const progressionArray = hideElement(progression, hiddenElementIndex);
-  const question = `${progressionArray}`;
+  const question = hideElement(progression, hiddenElementIndex);
   const correctAnswer = progression[hiddenElementIndex];
   return [question, correctAnswer.toString()];
 };

@@ -4,13 +4,11 @@ import gameLogic from '../index.js';
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  let divisor = 2;
-
-  while (number > divisor) {
+  const i = Math.sqrt(number);
+  for (let divisor = 2; divisor <= i; divisor += 1) {
     if (number % divisor === 0) {
       return false;
     }
-    divisor += 1;
   }
   return true;
 };
