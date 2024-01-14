@@ -10,7 +10,7 @@ const isPrime = (number) => {
       return false;
     }
   }
-  return true;
+  return (number > 1);
 };
 
 const gameRound = () => {
